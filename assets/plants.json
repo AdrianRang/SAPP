@@ -1,0 +1,74 @@
+{
+  "plants": [
+    {
+      "name": "Monstera Deliciosa",
+      "humidity": 50,
+      "light_level": 7500,
+      "humidity_range": 10,
+      "light_level_range": 2500
+    },
+    {
+      "name": "Fiddle Leaf Fig",
+      "humidity": 50,
+      "light_level": 14000,
+      "humidity_range": 10,
+      "light_level_range": 6000
+    },
+    {
+      "name": "Snake Plant",
+      "humidity": 30,
+      "light_level": 5050,
+      "humidity_range": 10,
+      "light_level_range": 4950
+    },
+    {
+      "name": "Peace Lily",
+      "humidity": 60,
+      "light_level": 1500,
+      "humidity_range": 10,
+      "light_level_range": 1000
+    },
+    {
+      "name": "Spider Plant",
+      "humidity": 50,
+      "light_level": 1500,
+      "humidity_range": 10,
+      "light_level_range": 1000
+    },
+    {
+      "name": "Pothos",
+      "humidity": 40,
+      "light_level": 2750,
+      "humidity_range": 10,
+      "light_level_range": 2250
+    },
+    {
+      "name": "ZZ Plant",
+      "humidity": 30,
+      "light_level": 1275,
+      "humidity_range": 10,
+      "light_level_range": 1225
+    },
+    {
+      "name": "Aloe Vera",
+      "humidity": 15,
+      "light_level": 17500,
+      "humidity_range": 5,
+      "light_level_range": 7500
+    },
+    {
+      "name": "Calathea",
+      "humidity": 70,
+      "light_level": 750,
+      "humidity_range": 10,
+      "light_level_range": 250
+    },
+    {
+      "name": "Dracaena",
+      "humidity": 40,
+      "light_level": 1500,
+      "humidity_range": 10,
+      "light_level_range": 1000
+    }
+  ]
+}
