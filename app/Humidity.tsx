@@ -1,8 +1,6 @@
-import mqtt, { MqttProtocol } from "mqtt";
-import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import { LineGraph } from "react-native-graph";
-import { DataPage } from "./Components";
+import React from "react";
+import { Text } from "react-native";
+import { DataPage } from "./components";
 
 const B = (props: any) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 

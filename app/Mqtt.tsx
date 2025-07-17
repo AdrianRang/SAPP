@@ -9,7 +9,7 @@ export default function MQTT() {
     const host = process.env.EXPO_PUBLIC_MQTT_HOST;
     const port = 8884;
     const clientId = 'expo-client-' + Math.random().toString(16).substr(2, 8);
-    const topic = '#';
+    const topic = 'light-level/history';
 
     const options = {
       host: host,
@@ -36,18 +36,20 @@ export default function MQTT() {
       msg+=","
     })
 
+    // msg=' ';
+
     client.publish(topic, msg, {retain: true})
 
-    client.on('connect', () => {
-      console.log('Connected to MQTT broker');
-      client.subscribe(topic, (err) => {
-        if (err) {
-          alert('Subscription error: ' + err);
-        } else {
-           console.log('Subscribed to topic: '+ topic);
-        }
-      });
-    });
+    // client.on('connect', () => {
+    //   console.log('Connected to MQTT broker');
+    //   client.subscribe(topic, (err) => {
+    //     if (err) {
+    //       alert('Subscription error: ' + err);
+    //     } else {
+    //        console.log('Subscribed to topic: '+ topic);
+    //     }
+    //   });
+    // });
 
     client.on('message', (topic, message) => {
       const msg = `${new Date().toLocaleTimeString()}: ${message.toString()}`;
