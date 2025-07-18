@@ -1,5 +1,5 @@
 //Snack requirenment
 
-import app from "./_layout"
+import app from "./app/_layout"
 
 export default app;
