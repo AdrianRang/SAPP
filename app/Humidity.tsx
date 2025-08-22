@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { DataPage } from "./components";
+import { DataPage } from "./Components";
 
 const B = (props: any) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 

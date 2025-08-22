@@ -228,7 +228,7 @@ export function DataPage({ title, topic, color }: { title: string, topic: string
       <Text style={{ fontSize: 50, fontWeight: "900" }}>{Math.floor(percent * 100)}%</Text>
       <View style={{ height: 50 }} />
       <Text>
-        La humedad optima es de <B>50%</B>. La humedad promedio es del <B>{Math.floor(average * 100)}%</B>.
+        La humedad optima es de <B>{messages[topic.replace('history', 'setpoint')]}%</B>. La humedad promedio es del <B>{Math.floor(average * 100)}%</B>.
       </Text>
     </View>
   )

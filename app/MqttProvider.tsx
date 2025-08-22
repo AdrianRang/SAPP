@@ -5,7 +5,7 @@ type MessageMap = Record<string, string>;
 
 interface MqttContextType {
     messages: MessageMap;
-    publish: (topic: string, message: string, options: mqtt.IClientPublishOptions) => void;
+    publish: (topic: string, message: string, options?: mqtt.IClientPublishOptions) => void;
     connected: boolean;
 }
 
@@ -64,7 +64,8 @@ export const MqttProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         };
     }, []);
 
-    const publish = (topic: string, message: string, options: mqtt.IClientPublishOptions) => {
+    function publish(topic: string, message: string, options?: mqtt.IClientPublishOptions) {
+        if (!options) options = {};
         if (clientRef.current && connected) {
             clientRef.current.publish(topic, message, options);
         }

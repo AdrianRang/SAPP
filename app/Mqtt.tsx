@@ -9,7 +9,7 @@ export default function MQTT() {
     const host = process.env.EXPO_PUBLIC_MQTT_HOST;
     const port = 8884;
     const clientId = 'expo-client-' + Math.random().toString(16).substr(2, 8);
-    const topic = 'light-level/history';
+    // const topic = 'humidity/history';
 
     const options = {
       host: host,
@@ -23,22 +23,30 @@ export default function MQTT() {
 
     const client = mqtt.connect(`wss://${host}:8884/mqtt`, options);
 
-    let msg = "";
-    let data = Array.from({ length: 50 }, (_, i) => ({
-      date: Date.now() - (49 - i) * 3600 * 1000,
-      value: (Math.sin(i/2.5)+1.5)/3 + (Math.random()-0.5)/3
-    }))
+    const topics = [
+      "humidity/history",
+      "light-level/history",
+      "water/history"
+    ]
 
-    data.forEach((v)=>{
-      msg+=v.date;
-      msg+=":"
-      msg+=v.value
-      msg+=","
+    topics.forEach((topic) => {
+      let msg = "";
+      let data = Array.from({ length: 50 }, (_, i) => ({
+        date: Date.now() - (49 - i) * 3600 * 1000,
+        value: (Math.sin(i/2.5)+1.5)/3 + (Math.random()-0.5)/3
+      }))
+
+      data.forEach((v)=>{
+        msg+=v.date;
+        msg+=":"
+        msg+=v.value
+        msg+=","
+      })
+
+      // msg=' ';
+
+      client.publish(topic, msg, {retain: true})
     })
-
-    // msg=' ';
-
-    client.publish(topic, msg, {retain: true})
 
     // client.on('connect', () => {
     //   console.log('Connected to MQTT broker');

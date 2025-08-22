@@ -1,13 +1,9 @@
-import React, { useState } from "react";
-import { Text, View, Image } from "react-native";
-import Dropdown from 'react-native-input-select';
-import { LineGraph } from 'react-native-graph'
-import plantsData from '../assets/plants.json';
-import { Link } from "expo-router";
 import type { LinkProps } from "expo-router";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Link } from "expo-router";
+import React, { useState } from "react";
+import { Image, Text, View } from "react-native";
+import { MqttData, MqttGraph, PlantSelect } from "./Components";
 import { useMqtt } from "./MqttProvider";
-import { MqttData, MqttGraph, PlantSelect } from "./components";
 
 enum State {
   Optimal,

@@ -1,13 +1,16 @@
-import React, { ReactNode, useState } from "react";
-import { View, Text, Image, TextInput, StyleSheet, Button } from "react-native";
-import Dropdown from 'react-native-input-select';
-import { NumberInput, TabBar, Tab, Card, PlantSelect, RemeberNumberInput } from "./components";
-import plantsData from '../assets/plants.json';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useState } from "react";
+import { Button, Image, Text, View } from "react-native";
+import Dropdown from 'react-native-input-select';
+import plantsData from '../assets/plants.json';
+import { Card, PlantSelect, RemeberNumberInput, Tab, TabBar } from "./Components";
+import { useMqtt } from "./MqttProvider";
 
 function System() {
     const [language, setLanguage] = useState('ES')
     const [water, setWater] = useState(15);
+
+    const { publish } = useMqtt();
 
     return (
         <View style={{
@@ -36,7 +39,7 @@ function System() {
             <Card mainColor={'#1ACDFF'} secondaryColor={'rgba(113, 203, 255, 0.61)'}>
                 <Text>Notificar cuando el nivel del aqua baje del: </Text>
                 <View style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems: 'center', gap: 3}}>
-                    <RemeberNumberInput value={water} setValue={setWater} max={100} storeKey={"water_alert"}/><Text>%</Text>
+                    <RemeberNumberInput value={water} setValue={(v)=>{setWater(v);publish("water/notify", v.toString(), {retain: true})}} max={100} storeKey={"water_alert"}/><Text>%</Text>
                 </View>
             </Card>
         </View>
@@ -53,6 +56,7 @@ interface PlantData {
 type PlantMap = Record<string, PlantData>;
 
 function Plant() {
+    const { publish } = useMqtt();
     const [pick, setPick] = useState<string | undefined>(undefined)
     
     const plantData: PlantMap = plantsData.plants.reduce((acc: PlantMap, p: any) => {
@@ -68,11 +72,18 @@ function Plant() {
     const [humidity, setHumidity] = useState(pick ? plantData[pick].humidity : 0);
     const [light, setLight] = useState(pick ? plantData[pick].light_level : 0);
 
+    
+
     function restoreDefaults() {
-        setHumidity(pick ? plantData[pick].humidity : 0)
-        AsyncStorage.setItem("optimal_humidity", (pick ? plantData[pick].humidity : 0).toString())
-        setLight(pick ? plantData[pick].light_level : 0)
-        AsyncStorage.setItem("optimal_light", (pick ? plantData[pick].light_level : 0).toString())
+        const humidity = pick ? plantData[pick].humidity : 0
+        setHumidity(humidity)
+        AsyncStorage.setItem("optimal_humidity", humidity.toString())
+        publish("humidity/setpoint", humidity.toString(), {retain: true});
+        
+        const light_level = pick ? plantData[pick].light_level : 0
+        setLight(light_level)
+        AsyncStorage.setItem("optimal_light", light_level.toString())
+        publish("light-level/setpoint", light_level.toString(), {retain: true});
     }
 
 
@@ -85,7 +96,7 @@ function Plant() {
                 <Image source={require("../assets/images/humidity.png")} style={{ width: 20, height: 28 }} />
                 <Text>Humedad</Text>
                 <View style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems: 'center', gap: 3}}>
-                    <RemeberNumberInput storeKey="optimal_humidity" value={humidity} setValue={setHumidity} max={100}/>
+                    <RemeberNumberInput storeKey="optimal_humidity" value={humidity} setValue={(v)=>{setHumidity(v);publish("humidity/setpoint", v.toString(), {retain: true})}} max={100}/>
                     <Text>%</Text>
                 </View>
             </Card>
@@ -93,7 +104,7 @@ function Plant() {
                 <Image source={require("../assets/images/light.png")} style={{ width: 28, height: 28 }} />
                 <Text>Nivel de Luz</Text>
                 <View style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems: 'center', gap: 3}}>
-                    <RemeberNumberInput storeKey="optimal_light" value={light} setValue={setLight} max={Number.MAX_VALUE}/>
+                    <RemeberNumberInput storeKey="optimal_light" value={light} setValue={(v)=>{setLight(v);publish("light-level/setpoint", v.toString(), {retain: true})}} max={Number.MAX_VALUE}/>
                     <Text>Lux</Text>
                 </View>
             </Card>
