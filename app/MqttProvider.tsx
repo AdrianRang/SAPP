@@ -1,7 +1,17 @@
 import React, { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import mqtt, { MqttClient, MqttProtocol } from "mqtt";
+import * as Notifications from 'expo-notifications';
 
 type MessageMap = Record<string, string>;
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
 
 interface MqttContextType {
     messages: MessageMap;
@@ -53,6 +63,16 @@ export const MqttProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         });
 
         client.on("message", (topic, payload) => {
+            if(topic === "low_water") {
+                console.log("low_water")
+                Notifications.scheduleNotificationAsync({
+                    content: {
+                        title: 'Look at that notification',
+                        body: "I'm so proud of myself!",
+                    },
+                    trigger: null,
+                });
+            }
             setMessages((prev) => ({
                 ...prev,
                 [topic]: payload.toString(), // Or keep as Buffer if you need
