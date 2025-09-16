@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.SAPP",
+      "bundleIdentifier": "com.SPOT.SAPP",
       "icon": {
         "dark": "./assets/images/ios-dark.png",
         "light": "./assets/images/ios-light.png",
@@ -23,7 +23,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.SAPP"
+      "package": "com.SPOT.SAPP"
     },
     "web": {
       "bundler": "metro",
@@ -37,7 +37,7 @@
           "backgroundColor": "#232323",
           "image": "./assets/images/splash-icon.png",
           "dark": {
-            "image": "./assets/images/splash-icon-dark.png",
+            "image": "./assets/images/splash-icon-light.png",
             "backgroundColor": "#000000"
           },
           "light": {

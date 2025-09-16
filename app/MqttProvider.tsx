@@ -4,15 +4,6 @@ import * as Notifications from 'expo-notifications';
 
 type MessageMap = Record<string, string>;
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
-
 interface MqttContextType {
     messages: MessageMap;
     publish: (topic: string, message: string, options?: mqtt.IClientPublishOptions) => void;
@@ -65,13 +56,56 @@ export const MqttProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         client.on("message", (topic, payload) => {
             if(topic === "low_water") {
                 console.log("low_water")
-                Notifications.scheduleNotificationAsync({
-                    content: {
-                        title: 'Look at that notification',
-                        body: "I'm so proud of myself!",
-                    },
-                    trigger: null,
+
+                Notifications.setNotificationHandler({
+                    handleNotification: async () => ({
+                        shouldPlaySound: true,
+                        shouldSetBadge: true,
+                        shouldShowBanner: true,
+                        shouldShowList: true,
+                    }),
                 });
+
+                (async () => {
+                    const { status } = await Notifications.requestPermissionsAsync();
+                    if (status === 'granted') {
+                        await Notifications.scheduleNotificationAsync({
+                            content: {
+                                title: 'El nivel del agua esta bajo',
+                                body: "El tanque tiene " + Math.floor(Number(payload)) + "% de agua",
+                            },
+                            trigger: null,
+                        });
+                    } else {
+                        console.warn('Notification permissions not granted');
+                    }
+                })();
+            } else if(topic === "light-level/alert") {
+                console.log("light-level/alert")
+
+                Notifications.setNotificationHandler({
+                    handleNotification: async () => ({
+                        shouldPlaySound: true,
+                        shouldSetBadge: true,
+                        shouldShowBanner: true,
+                        shouldShowList: true,
+                    }),
+                });
+
+                (async () => {
+                    const { status } = await Notifications.requestPermissionsAsync();
+                    if (status === 'granted') {
+                        await Notifications.scheduleNotificationAsync({
+                            content: {
+                                title: 'El nivel de luz no es optimo',
+                                body: "La planta recibe en promedio " + Math.floor(Number(payload)) + "Lux",
+                            },
+                            trigger: null,
+                        });
+                    } else {
+                        console.warn('Notification permissions not granted');
+                    }
+                })();
             }
             setMessages((prev) => ({
                 ...prev,

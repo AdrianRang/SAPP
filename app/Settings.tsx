@@ -39,7 +39,7 @@ function System() {
             <Card mainColor={'#1ACDFF'} secondaryColor={'rgba(113, 203, 255, 0.61)'}>
                 <Text>Notificar cuando el nivel del aqua baje del: </Text>
                 <View style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems: 'center', gap: 3}}>
-                    <RemeberNumberInput value={water} setValue={(v)=>{setWater(v);publish("water/notify", v.toString(), {retain: true})}} max={100} storeKey={"water_alert"}/><Text>%</Text>
+                    <RemeberNumberInput value={water} setValue={(v)=>{setWater(v);publish("water/notify", v.toString(), {retain: true})}} max={20} storeKey={"water_alert"}/><Text>%</Text>
                 </View>
             </Card>
         </View>

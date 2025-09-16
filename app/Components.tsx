@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import React, { ReactNode, useState } from "react";
 import { Image, Text, TextInput, View, StyleSheet, ColorValue, StyleProp, TextStyle, ViewStyle } from "react-native";
-import { LineGraph } from "react-native-graph";
+import { LineChart } from "react-native-gifted-charts";
 import { useMqtt } from "./MqttProvider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Dropdown from 'react-native-input-select';
@@ -41,12 +41,29 @@ export function MqttGraph({topic, color, style, fallback='No data found'}: {topi
     return { date: new Date(Number(sep[0])), value: Number(sep[1] || '5') };
   })
   return (
-    <LineGraph
-              points={data}
-              color={color}
-              animated={false}
-              style={style}
-            />
+    // <LineGraph
+    //           points={data}
+    //           color={color}
+    //           animated={false}
+    //           style={style}
+    //         />
+    <LineChart 
+      data={data}
+      width={120}
+      height={60}
+      hideAxesAndRules
+      scrollToIndex={10}
+      spacing={3}
+      areaChart
+      hideDataPoints
+      color={color}
+      startFillColor={color}
+      endFillColor="#F2F2F2"
+      disableScroll
+      hideYAxisText
+      labelsExtraHeight={-20}
+
+    />
   )
 }
 
@@ -181,29 +198,31 @@ export function PlantSelect({plant, setPlant}: {plant: string | undefined, setPl
 }
 
 export function DataPage({ title, topic, color }: { title: string, topic: string, color: string }) {
-  const [percent, setPercent] = useState(0)
+  // const [percent, setPercent] = useState(0)
+  let percent = 0;
   // const [history, setHistory] = useState<any>([{ date: new Date(), value: 0 }]);
   // const [average, setAverage] = useState(0);
   const { messages } = useMqtt();
 
-  if(!messages[topic] || !messages[topic].includes(":")) return (
+  if(!messages[topic + "/history"] || !messages[topic + "/history"].includes(":")) return (
     <Text>No hay datos...</Text>
   )
 
   let sum = 0;
-  const history = (messages[topic].split(',', 70).filter((v) => v !== "").map((v) => {
+  const history = (messages[topic + "/history"].split(',', 70).filter((v) => v !== "").map((v) => {
     if (v !== "") {
       const sep = v.split(':');
       sum += Number(sep[1])
-      return { date: new Date(Number(sep[0])), value: Number(sep[1] || '5') };
+      return { date: new Date(Number(sep[0])), value: Number(sep[1] || '5')*100 };
     } else {
       alert(v)
       return { date: new Date(), value: 0 }
     }
   }))
-  const average = sum / messages[topic].split(',').length;
+  const average = sum / messages[topic + "/history"].split(',').length;
   // setPercent(history[0].value)
-  // setAverage(sum / msg.split(',', 70).length)
+  percent = history[0].value;
+  // setAverage(sum / messages[topic + "/history"].split(',', 70).length)
   // alert(history.toString())
 
   return (
@@ -214,7 +233,7 @@ export function DataPage({ title, topic, color }: { title: string, topic: string
       margin: 10,
     }}>
       <Text style={{ fontSize: 50 }}>{title}</Text>
-      <LineGraph
+      {/* <LineGraph
         points={history}
         color={color}
         animated
@@ -223,12 +242,24 @@ export function DataPage({ title, topic, color }: { title: string, topic: string
         onPointSelected={(p) => setPercent(p.value)}
         onGestureEnd={() => setPercent(history[history.length - 1].value)}
         style={{ height: 100, marginTop: 10, width: "100%", transform: 'translateX(-30px)' }}
+      /> */}
+      <LineChart 
+        data={history}
+        areaChart
+        hideRules
+        spacing={30}
+        color={color}
+        startFillColor={color}
+        endFillColor="#F2F2F2"
+        scrollToIndex={1}
+        // hideAxesAndRules
       />
       <View style={{ height: 30 }} />
-      <Text style={{ fontSize: 50, fontWeight: "900" }}>{Math.floor(percent * 100)}%</Text>
+      {/* <Text style={{ fontSize: 50, fontWeight: "900" }}>{Math.floor(percent)}%</Text> */}
+      <MqttData topic={topic + "/curr"} fallback=" No device data " style={{fontSize: 50, fontWeight: "900"}} transform={(v)=>String(Math.floor(Number(v)))+"%"}/>
       <View style={{ height: 50 }} />
       <Text>
-        La humedad optima es de <B>{messages[topic.replace('history', 'setpoint')]}%</B>. La humedad promedio es del <B>{Math.floor(average * 100)}%</B>.
+        La humedad optima es de <B>{messages[topic + '/setpoint']}%</B>. La humedad promedio es del <B>{Math.floor(average * 100)}%</B>.
       </Text>
     </View>
   )

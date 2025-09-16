@@ -19,6 +19,9 @@ function points(count: number) {
 }
 
 function DataCard({ title, topic, color, state, link }: { title: string, topic: string, color: string, state: State, link: LinkProps["href"] }) {
+  const { messages } = useMqtt();
+  if (!messages[topic]) state = State.Error;
+
   let img;
   switch (state) {
     case State.Optimal:
@@ -87,7 +90,7 @@ return (
     }}>
       <View style={{ display: 'flex', alignItems: 'center', width: "20%" }}>
         <Image source={require("../assets/images/humidity.png")} style={{ width: 40, height: 56 }} />
-        <MqttData topic="humidity/curr" style={{fontSize: 20}} transform={v=>Math.floor(Number(v)*100)+'%'}/>
+        <MqttData topic="humidity/curr" style={{fontSize: 20}} transform={v=>Math.floor(Number(v))+'%'}/>
       </View>
       <Image source={require("../assets/images/plant.png")} style={{ width: 160, height: 250.102389072 }} />
       <View style={{ display: 'flex', alignItems: 'center', width: "20%" }}>
@@ -98,8 +101,8 @@ return (
     <PlantSelect plant={pick} setPlant={setPick}/>
     <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
       <DataCard title="Humedad" topic="humidity/history" color="#0000ff" state={State.Optimal} link={'/Humidity'} />
-      <DataCard title="Luz" topic="light-level/history" color="#FDD93B" state={State.Error} link={'/Light'} />
-      <DataCard title="Nivel del Agua" topic="water/history" color="#1ACDFF" state={State.SubOptimal} link={'/Water'} />
+      <DataCard title="Luz" topic="light-level/history" color="#FDD93B" state={!messages["light-level/alert"] ? State.Optimal : State.SubOptimal} link={'/Light'} />
+      <DataCard title="Nivel del Agua" topic="water/history" color="#1ACDFF" state={!messages["low_water"] ? State.Optimal : State.SubOptimal} link={'/Water'} />
     </View>
     <Link href={'/_sitemap'}><Text>MQTT</Text></Link>
   </View>

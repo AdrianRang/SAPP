@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		31EB70882FF7FABD7356E9B2 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6501802F08D46CB6D93A035 /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		9493A9B8DFC5C03584E89A08 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 27DC486E1309D6BB4160DE43 /* PrivacyInfo.xcprivacy */; };
-		AD6B98A63A254EECD9B7E887 /* libPods-SAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BE2D0644807B0163124A6E /* libPods-SAPP.a */; };
+		5AD620C7C1CE22A520061322 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4687E97D542D4DC50A346B85 /* PrivacyInfo.xcprivacy */; };
+		A457627E997E6AC17FA85514 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F99606A01EC28018AAC4DB /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		E29512D346E95937AF43FF44 /* libPods-SAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F928DBE2EFD12FBFE59E93 /* libPods-SAPP.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,13 +20,13 @@
 		13B07F961A680F5B00A75B9A /* SAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SAPP/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SAPP/Info.plist; sourceTree = "<group>"; };
-		17228C0C3085B7EFBE825D39 /* Pods-SAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAPP.debug.xcconfig"; path = "Target Support Files/Pods-SAPP/Pods-SAPP.debug.xcconfig"; sourceTree = "<group>"; };
-		27DC486E1309D6BB4160DE43 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = SAPP/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		59BE2D0644807B0163124A6E /* libPods-SAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6501802F08D46CB6D93A035 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SAPP/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		31BDC53D379A17D50259C47C /* Pods-SAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAPP.release.xcconfig"; path = "Target Support Files/Pods-SAPP/Pods-SAPP.release.xcconfig"; sourceTree = "<group>"; };
+		4687E97D542D4DC50A346B85 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = SAPP/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		59F99606A01EC28018AAC4DB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SAPP/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		97F928DBE2EFD12FBFE59E93 /* libPods-SAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SAPP/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		D5C391AFC6E7E586A8097E0B /* Pods-SAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAPP.release.xcconfig"; path = "Target Support Files/Pods-SAPP/Pods-SAPP.release.xcconfig"; sourceTree = "<group>"; };
+		E068BD96F5AF11D554156F0A /* Pods-SAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAPP.debug.xcconfig"; path = "Target Support Files/Pods-SAPP/Pods-SAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SAPP/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* SAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SAPP-Bridging-Header.h"; path = "SAPP/SAPP-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD6B98A63A254EECD9B7E887 /* libPods-SAPP.a in Frameworks */,
+				E29512D346E95937AF43FF44 /* libPods-SAPP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,15 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				27DC486E1309D6BB4160DE43 /* PrivacyInfo.xcprivacy */,
-			);
-			name = SAPP;
-			sourceTree = "<group>";
-		};
-		227399079641A52C90927836 /* SAPP */ = {
-			isa = PBXGroup;
-			children = (
-				A6501802F08D46CB6D93A035 /* ExpoModulesProvider.swift */,
+				4687E97D542D4DC50A346B85 /* PrivacyInfo.xcprivacy */,
 			);
 			name = SAPP;
 			sourceTree = "<group>";
@@ -70,18 +62,25 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				59BE2D0644807B0163124A6E /* libPods-SAPP.a */,
+				97F928DBE2EFD12FBFE59E93 /* libPods-SAPP.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3FCEA720285807565BC8A113 /* Pods */ = {
+		3FE1BE265C5D704C2419B417 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				17228C0C3085B7EFBE825D39 /* Pods-SAPP.debug.xcconfig */,
-				D5C391AFC6E7E586A8097E0B /* Pods-SAPP.release.xcconfig */,
+				40D8B8E6A4D40EADB9A031BA /* SAPP */,
 			);
-			path = Pods;
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		40D8B8E6A4D40EADB9A031BA /* SAPP */ = {
+			isa = PBXGroup;
+			children = (
+				59F99606A01EC28018AAC4DB /* ExpoModulesProvider.swift */,
+			);
+			name = SAPP;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -98,8 +97,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				3FCEA720285807565BC8A113 /* Pods */,
-				E1701F76ACE12CC1F70E5017 /* ExpoModulesProviders */,
+				EEA971C053CD3EC797828CB5 /* Pods */,
+				3FE1BE265C5D704C2419B417 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,12 +122,13 @@
 			path = SAPP/Supporting;
 			sourceTree = "<group>";
 		};
-		E1701F76ACE12CC1F70E5017 /* ExpoModulesProviders */ = {
+		EEA971C053CD3EC797828CB5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				227399079641A52C90927836 /* SAPP */,
+				E068BD96F5AF11D554156F0A /* Pods-SAPP.debug.xcconfig */,
+				31BDC53D379A17D50259C47C /* Pods-SAPP.release.xcconfig */,
 			);
-			name = ExpoModulesProviders;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,13 +139,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SAPP" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				8F678B4CCD42B3971792CCD1 /* [Expo] Configure project */,
+				ED8C14FA6CBF5C7AD537677F /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				3A9D4DF659E1E9F78CC0379B /* [CP] Embed Pods Frameworks */,
+				61CF89D43A089C8B22ED7F03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,7 +165,9 @@
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 3WTK9GCR4S;
 						LastSwiftMigration = 1250;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -195,7 +197,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				9493A9B8DFC5C03584E89A08 /* PrivacyInfo.xcprivacy in Resources */,
+				5AD620C7C1CE22A520061322 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +241,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3A9D4DF659E1E9F78CC0379B /* [CP] Embed Pods Frameworks */ = {
+		61CF89D43A089C8B22ED7F03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +275,7 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG/RNSVGFilters.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
@@ -290,6 +293,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNSVGFilters.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
@@ -301,7 +305,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SAPP/Pods-SAPP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F678B4CCD42B3971792CCD1 /* [Expo] Configure project */ = {
+		ED8C14FA6CBF5C7AD537677F /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -310,11 +314,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/SAPP/SAPP.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SAPP/expo-configure-project.sh",
 			);
 			name = "[Expo] Configure project";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SAPP/ExpoModulesProvider.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -328,7 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				31EB70882FF7FABD7356E9B2 /* ExpoModulesProvider.swift in Sources */,
+				A457627E997E6AC17FA85514 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,11 +346,13 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17228C0C3085B7EFBE825D39 /* Pods-SAPP.debug.xcconfig */;
+			baseConfigurationReference = E068BD96F5AF11D554156F0A /* Pods-SAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SAPP/SAPP.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3WTK9GCR4S;
 				ENABLE_BITCODE = NO;
@@ -362,8 +373,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonymous.SAPP";
-				PRODUCT_NAME = "SAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPOT.SAPP;
+				PRODUCT_NAME = SAPP;
 				SWIFT_OBJC_BRIDGING_HEADER = "SAPP/SAPP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -374,11 +385,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5C391AFC6E7E586A8097E0B /* Pods-SAPP.release.xcconfig */;
+			baseConfigurationReference = 31BDC53D379A17D50259C47C /* Pods-SAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SAPP/SAPP.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3WTK9GCR4S;
 				INFOPLIST_FILE = SAPP/Info.plist;
@@ -394,8 +407,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anonymous.SAPP";
-				PRODUCT_NAME = "SAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPOT.SAPP;
+				PRODUCT_NAME = SAPP;
 				SWIFT_OBJC_BRIDGING_HEADER = "SAPP/SAPP-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
